@@ -1,0 +1,46 @@
+[ 2017-04-08T15:02:23+08:00 ] 192.168.85.1 /index.php?s=Home/index/send1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.012901s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000739s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000796s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: Library error: a socket error occurred - Potential login failure.
+
+[ 2017-04-08T15:04:00+08:00 ] 192.168.85.1 /index.php?s=Home/index/send1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000373s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000377s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.024978s ]
+INFO: [ app_end ] --END-- [ RunTime:0.025044s ]
+
+[ 2017-04-08T15:04:44+08:00 ] 192.168.85.1 /index.php?s=Home/index/send2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000838s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000871s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000926s ]
+
+[ 2017-04-08T15:05:29+08:00 ] 192.168.85.1 /index.php?s=Home/index/send2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000378s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000658s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000729s ]
+

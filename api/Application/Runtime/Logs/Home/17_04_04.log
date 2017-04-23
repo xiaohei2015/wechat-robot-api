@@ -1,0 +1,373 @@
+[ 2017-04-04T20:59:52+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000589s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000637s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: syntax error, unexpected 'function' (T_FUNCTION), expecting '('
+
+[ 2017-04-04T21:00:16+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000059s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000495s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000452s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: Class 'Home\Controller\AMQPConnection' not found
+
+[ 2017-04-04T21:01:27+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000273s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000694s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000541s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000588s ]
+
+[ 2017-04-04T21:02:30+08:00 ] 192.168.85.1 /index.php?s=Home/index/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000389s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+NOTIC: [8192] Function AMQPQueue::declare() is deprecated /home/vbot/wechat-robot-api/api/Application/Home/Controller/IndexController.class.php 第 44 行.
+ERR: Server channel error: 404, message: NOT_FOUND - no exchange 'robot_exchange' in vhost '/'
+
+[ 2017-04-04T21:05:24+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000723s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000440s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000419s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-04-04T21:06:21+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000603s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000652s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000656s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000720s ]
+
+[ 2017-04-04T21:06:31+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000792s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000471s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000520s ]
+
+[ 2017-04-04T21:11:02+08:00 ] 192.168.85.1 /index.php?s=Home/index/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000402s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+NOTIC: [8192] Function AMQPQueue::declare() is deprecated /home/vbot/wechat-robot-api/api/Application/Home/Controller/IndexController.class.php 第 44 行.
+ERR: Server channel error: 404, message: NOT_FOUND - no exchange 'robot_exchange' in vhost '/'
+
+[ 2017-04-04T21:12:33+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000315s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000331s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000437s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000484s ]
+
+[ 2017-04-04T21:12:58+08:00 ] 192.168.85.1 /index.php?s=Home/index/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000335s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+NOTIC: [8192] Function AMQPQueue::declare() is deprecated /home/vbot/wechat-robot-api/api/Application/Home/Controller/IndexController.class.php 第 44 行.
+ERR: Server channel error: 404, message: NOT_FOUND - no exchange 'robot_exchange' in vhost '/'
+
+[ 2017-04-04T21:18:24+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000358s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000425s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000508s ]
+
+[ 2017-04-04T21:23:46+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000412s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000652s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: syntax error, unexpected '$message' (T_VARIABLE)
+
+[ 2017-04-04T21:26:48+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000553s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000609s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: syntax error, unexpected '$message' (T_VARIABLE)
+
+[ 2017-04-04T21:26:50+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000489s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000524s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: syntax error, unexpected '$message' (T_VARIABLE)
+
+[ 2017-04-04T21:27:32+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000412s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+ERR: syntax error, unexpected '$message' (T_VARIABLE)
+
+[ 2017-04-04T21:30:37+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000468s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000696s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000504s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000552s ]
+
+[ 2017-04-04T21:31:26+08:00 ] 192.168.85.1 /index.php?s=Home/index/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+NOTIC: [8192] Function AMQPQueue::declare() is deprecated /home/vbot/wechat-robot-api/api/Application/Home/Controller/IndexController.class.php 第 45 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000602s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000706s ]
+
+[ 2017-04-04T21:32:06+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000328s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000474s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000509s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000453s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000500s ]
+
+[ 2017-04-04T21:32:35+08:00 ] 192.168.85.1 /index.php?s=Home/index/run
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000613s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+NOTIC: [8192] Function AMQPQueue::declare() is deprecated /home/vbot/wechat-robot-api/api/Application/Home/Controller/IndexController.class.php 第 45 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000512s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000560s ]
+
+[ 2017-04-04T21:44:50+08:00 ] 192.168.85.1 /index.php?s=Home/index/start
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000390s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000703s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000788s ]
+
+[ 2017-04-04T21:47:25+08:00 ]  
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+NOTIC: [8] Undefined index: REQUEST_METHOD /home/vbot/wechat-robot-api/api/ThinkPHP/Library/Think/App.class.php 第 31 行.
+NOTIC: [8] Undefined index: REQUEST_URI /home/vbot/wechat-robot-api/api/ThinkPHP/Library/Think/Dispatcher.class.php 第 137 行.
+NOTIC: [8] Use of undefined constant _PHP_FILE_ - assumed '_PHP_FILE_' /home/vbot/wechat-robot-api/api/ThinkPHP/Library/Think/Dispatcher.class.php 第 191 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000309s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003458s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003529s ]
+
+[ 2017-04-04T21:54:06+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000494s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000558s ]
+
+[ 2017-04-04T21:54:59+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000356s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000579s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000479s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000526s ]
+
+[ 2017-04-04T22:03:26+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000398s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000545s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000667s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000761s ]
+
+[ 2017-04-04T22:30:57+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000430s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000409s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000468s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-04-04T22:32:04+08:00 ] 192.168.85.1 /index.php?s=Home/index/send
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000518s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000556s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000579s ]
+
+[ 2017-04-04T22:44:57+08:00 ] 192.168.85.1 /index.php?s=Home/index/send1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000435s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000537s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000582s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000606s ]
+
+[ 2017-04-04T22:45:42+08:00 ] 192.168.85.1 /index.php?s=Home/index/send2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000375s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000573s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000628s ]
+
+[ 2017-04-04T22:48:31+08:00 ] 192.168.85.1 /index.php?s=Home/index/send2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000615s ]
+
+[ 2017-04-04T22:50:18+08:00 ] 192.168.85.1 /index.php?s=Home/index/send2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000491s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000520s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000554s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000581s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000630s ]
+
+[ 2017-04-04T22:50:59+08:00 ] 192.168.85.1 /index.php?s=Home/index/send1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000421s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000604s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000525s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000573s ]
+
+[ 2017-04-04T22:51:34+08:00 ] 192.168.85.1 /index.php?s=Home/index/send2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000625s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000699s ]
+NOTIC: [2] session_start(): open(/var/lib/php/session/sess_gfean79od7pno99nkd47qpe527, O_RDWR) failed: No such file or directory (2) /home/vbot/wechat-robot-api/api/ThinkPHP/Common/functions.php 第 1263 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000494s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000540s ]
+
