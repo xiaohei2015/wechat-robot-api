@@ -70,7 +70,7 @@ class IndexController extends Controller {
 			$messages = $q->get(AMQP_AUTOACK) ;
 			if ($messages){
 				$msg = json_decode($messages->getBody(), true );
-				var_dump($msg);
+				//var_dump($msg);
 				if(isset($msg['do']) && $msg['do'] == 'start'){
 					$pid = $this->start();
 					$qr_name = $msg['id'].'_'.time();
@@ -91,6 +91,8 @@ class IndexController extends Controller {
 					$data['thread_id'] = 0;
 					$data['qr'] = '';
 					$Robot->save($data);
+				}elseif($msg['do'] == 'group_add'){
+					$this->groupAdd($msg['data']);
 				}
 			}
 			sleep(1);
@@ -108,5 +110,26 @@ class IndexController extends Controller {
 	}
 	private function stop($thread_id){
 		proc_close(proc_open('kill -9 '.$thread_id, array(), $pipes));
+	}
+	private function groupAdd($group){
+		foreach ($group as $k => $v) {
+			$wxgroup = M('wxgroup');
+			$data = [];
+			$data['group_id'] = $v['UserName'];
+			$data['group_name'] = $v['NickName'];
+			$data['robot_id'] = 11;
+			$group_id = $wxgroup->add($data);
+			foreach($v['MemberList'] as $vv){
+				$wxuser = M('wxgroupuser');
+				$data = [];
+				$data['wxgroupid'] = $group_id;
+				$data['robotuid'] = 11;
+				$data['nick_name'] = mb_strlen($vv['NickName'])<=128?$vv['NickName']:mb_substr($vv['NickName'], 0, 128);
+				$data['user_name'] = $vv['UserName'];
+				var_dump($data);
+				$wxuser->add($data);
+			}
+			echo $v['NickName'].' group info saved success!'.PHP_EOL;
+		}
 	}
 }
