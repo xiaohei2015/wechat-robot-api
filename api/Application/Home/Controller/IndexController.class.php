@@ -72,7 +72,7 @@ class IndexController extends Controller {
 				$msg = json_decode($messages->getBody(), true );
 				//var_dump($msg);
 				if(isset($msg['do']) && $msg['do'] == 'start'){
-					$pid = $this->start();
+					$pid = $this->start($msg['id']);
 					$qr_name = $msg['id'].'_'.time();
 					rename("/home/vbot/wechat-robot-core/tmp/qr.png", "/data/sharedisk/robot/qrcode/".$qr_name.".png");
 					$Robot = M('robot');
@@ -92,7 +92,7 @@ class IndexController extends Controller {
 					$data['qr'] = '';
 					$Robot->save($data);
 				}elseif($msg['do'] == 'group_add'){
-					$this->groupAdd($msg['data']);
+					$this->groupAdd($msg['robot_id'],$msg['data']);
 				}
 			}
 			sleep(1);
@@ -101,8 +101,8 @@ class IndexController extends Controller {
 		}
 		$conn->disconnect();
 	}
-	private function start(){
-		$process = proc_open('php /home/vbot/wechat-robot-core/app/runner.php >> /home/vbot/wechat-robot-core/app/runner.log &', array(), $pipes);
+	private function start($robot_id){
+		$process = proc_open('php /home/vbot/wechat-robot-core/app/runner.php '.$robot_id.' >> /home/vbot/wechat-robot-core/app/runner.log &', array(), $pipes);
         $var = proc_get_status($process);
         proc_close($process);
         $pid = intval($var['pid']) + 1;
@@ -111,20 +111,33 @@ class IndexController extends Controller {
 	private function stop($thread_id){
 		proc_close(proc_open('kill -9 '.$thread_id, array(), $pipes));
 	}
-	private function groupAdd($group){
+	// 过滤掉emoji表情
+	private function filterEmoji($str)
+	{
+	    $str = preg_replace_callback(
+	            '/./u',
+	            function (array $match) {
+	                return strlen($match[0]) >= 4 ? '' : $match[0];
+	            },
+	            $str);
+
+	     return $str;
+	 }
+	private function groupAdd($robot_id, $group){
 		foreach ($group as $k => $v) {
 			$wxgroup = M('wxgroup');
 			$data = [];
 			$data['group_id'] = $v['UserName'];
-			$data['group_name'] = $v['NickName'];
+			$data['group_name'] = $this->filterEmoji($v['NickName']);
 			$data['robot_id'] = 11;
 			$group_id = $wxgroup->add($data);
 			foreach($v['MemberList'] as $vv){
 				$wxuser = M('wxgroupuser');
 				$data = [];
 				$data['wxgroupid'] = $group_id;
-				$data['robotuid'] = 11;
-				$data['nick_name'] = mb_strlen($vv['NickName'])<=128?$vv['NickName']:mb_substr($vv['NickName'], 0, 128);
+				$data['robotuid'] = $robot_id;
+				//$data['nick_name'] = mb_strlen($vv['NickName'])<=128?$vv['NickName']:mb_substr($vv['NickName'], 0, 128);
+				$data['nick_name'] = $this->filterEmoji($vv['NickName']);
 				$data['user_name'] = $vv['UserName'];
 				var_dump($data);
 				$wxuser->add($data);
