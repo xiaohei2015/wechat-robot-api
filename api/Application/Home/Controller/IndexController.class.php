@@ -91,8 +91,10 @@ class IndexController extends Controller {
 					$data['thread_id'] = 0;
 					$data['qr'] = '';
 					$Robot->save($data);
-				}elseif($msg['do'] == 'group_add'){
+				}elseif(isset($msg['do']) && $msg['do'] == 'group_add'){
 					$this->groupAdd($msg['robot_id'],$msg['data']);
+				}elseif(isset($msg['do']) && $msg['do'] == 'robot_state'){
+					$this->updateRobotState($msg['robot_id'],$msg['data']);
 				}
 			}
 			sleep(1);
@@ -144,5 +146,12 @@ class IndexController extends Controller {
 			}
 			echo $v['NickName'].' group info saved success!'.PHP_EOL;
 		}
+	}
+	private function updateRobotState($robot_id, $data){
+		$Robot = M('robot');
+		$data['id'] = $robot_id;
+		$data['state'] = $data['state'];
+		var_dump($data);
+		$Robot->save($data);
 	}
 }
