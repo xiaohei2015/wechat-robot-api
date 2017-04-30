@@ -111,7 +111,11 @@ class IndexController extends Controller {
 		return $pid;
 	}
 	private function stop($thread_id){
-		proc_close(proc_open('kill -9 '.$thread_id, array(), $pipes));
+		if($thread_id > 0){
+			proc_close(proc_open('kill -9 '.$thread_id, array(), $pipes));
+			return true;
+		}else
+			return false;
 	}
 	// 过滤掉emoji表情
 	private function filterEmoji($str)
