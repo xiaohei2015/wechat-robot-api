@@ -95,6 +95,8 @@ class IndexController extends Controller {
 					$this->groupAdd($msg['robot_id'],$msg['data']);
 				}elseif(isset($msg['do']) && $msg['do'] == 'robot_state'){
 					$this->updateRobotState($msg['robot_id'],$msg['data']);
+				}elseif(isset($msg['do']) && $msg['do'] == 'msg_add'){
+					$this->msgAdd($msg['robot_id'],$msg['data']);
 				}
 			}
 			sleep(1);
@@ -128,13 +130,15 @@ class IndexController extends Controller {
 	            $str);
 
 	     return $str;
-	 }
+	}
 	private function groupAdd($robot_id, $group){
 		foreach ($group as $k => $v) {
 			$wxgroup = M('wxgroup');
 			$data = [];
 			$data['group_id'] = $v['UserName'];
-			$data['group_name'] = $this->filterEmoji($v['NickName']);
+			$gn = $this->filterEmoji($v['NickName']);
+			$gn = mb_strlen($gn, 'utf-8')>100?mb_substr($gn, 0, 100):$gn;
+			$data['group_name'] = $gn;
 			$data['robot_id'] = 11;
 			$group_id = $wxgroup->add($data);
 			foreach($v['MemberList'] as $vv){
@@ -143,7 +147,9 @@ class IndexController extends Controller {
 				$data['wxgroupid'] = $group_id;
 				$data['robotuid'] = $robot_id;
 				//$data['nick_name'] = mb_strlen($vv['NickName'])<=128?$vv['NickName']:mb_substr($vv['NickName'], 0, 128);
-				$data['nick_name'] = $this->filterEmoji($vv['NickName']);
+				$nn = $this->filterEmoji($vv['NickName']);
+				$nn = mb_strlen($nn, 'utf-8')>128?mb_substr($nn, 0, 128):$nn;
+				$data['nick_name'] = $nn;
 				$data['user_name'] = $vv['UserName'];
 				var_dump($data);
 				$wxuser->add($data);
@@ -157,5 +163,24 @@ class IndexController extends Controller {
 		$data['state'] = $data['state'];
 		var_dump($data);
 		$Robot->save($data);
+	}
+	private function msgAdd($robot_id, $msg){
+		$group= @$msg['from']['UserName'];
+		$sender= @$msg['sender']['UserName'];
+		$receiver = @$msg['msg']['ToUserName'];
+		$content = @$msg['content'];
+		$time = time();
+		$year = date('Y');
+		$group_id = M('wxgroup')->where("group_id = '$group'")->getField('id');
+		$sender_id = M('wxgroupuser')->where("user_name = '$sender'")->getField('id');
+		$receiver_id = M('wxgroupuser')->where("user_name = '$receiver'")->getField('id');
+		$MsgReceive = M('wxgroup_msg_receive_'.$year);
+		$data['groupid'] = $group_id;
+		$data['senduid'] = $sender_id;
+		$data['receiveuid'] = $receiver_id;
+		$data['content'] = $content;
+		$data['receiveTime'] = $time;
+		var_dump($data);
+		$MsgReceive->add($data);
 	}
 }
