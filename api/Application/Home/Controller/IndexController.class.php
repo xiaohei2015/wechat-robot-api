@@ -105,41 +105,50 @@ class IndexController extends Controller {
 			//消息获取
 			$messages = $q->get(AMQP_AUTOACK) ;
 			if ($messages){
-				$msg = json_decode($messages->getBody(), true );
-				//var_dump($msg);
-				if(isset($msg['do']) && $msg['do'] == 'start'){
-					$pid = $this->start($msg['id']);
-					$qr_name = $msg['id'].'_'.time();
-					rename("/home/vbot/wechat-robot-core/tmp/qr.png", "/data/sharedisk/robot/qrcode/".$qr_name.".png");
-					$Robot = M('robot');
-					$data['id'] = $msg['id'];
-					$data['state'] = 1;
-					$data['thread_id'] = $pid;
-					$data['qr'] = 'http://114.55.133.164:800/robot/qrcode/'.$qr_name.".png";
-					$Robot->save($data);
-				}elseif(isset($msg['do']) && $msg['do'] == 'stop'){
-					$Robot = M('robot');
-					$pid = $Robot->where('id='.$msg['id'])->getField('thread_id');
-					var_dump('pid is:'.$pid);
-					$this->stop($pid);
-					$data['id'] = $msg['id'];
-					$data['state'] = 2;
-					$data['thread_id'] = 0;
-					$data['qr'] = '';
-					$Robot->save($data);
-				}elseif(isset($msg['do']) && $msg['do'] == 'group_add'){
-					$this->groupAdd($msg['robot_id'],$msg['data']);
-				}elseif(isset($msg['do']) && $msg['do'] == 'robot_state'){
-					$this->updateRobotState($msg['robot_id'],$msg['data']);
-				}elseif(isset($msg['do']) && $msg['do'] == 'msg_add'){
-					$this->msgAdd($msg['robot_id'],$msg['data']);
-				}
+				$this->msgHandling($messages);
 			}
 			sleep(1);
 			$i--;
 			echo $i.PHP_EOL;
 		}
 		$conn->disconnect();
+	}
+	private function msgHandling($messages){
+		try{
+			echo 'begin to handling message'.PHP_EOL;
+			$msg = json_decode($messages->getBody(), true );
+			//var_dump($msg);
+			if(isset($msg['do']) && $msg['do'] == 'start'){
+				$pid = $this->start($msg['id']);
+				$qr_name = $msg['id'].'_'.time();
+				rename("/home/vbot/wechat-robot-core/tmp/qr.png", "/data/sharedisk/robot/qrcode/".$qr_name.".png");
+				$Robot = M('robot');
+				$data['id'] = $msg['id'];
+				$data['state'] = 1;
+				$data['thread_id'] = $pid;
+				$data['qr'] = 'http://114.55.133.164:800/robot/qrcode/'.$qr_name.".png";
+				$Robot->save($data);
+			}elseif(isset($msg['do']) && $msg['do'] == 'stop'){
+				$Robot = M('robot');
+				$pid = $Robot->where('id='.$msg['id'])->getField('thread_id');
+				var_dump('pid is:'.$pid);
+				$this->stop($pid);
+				$data['id'] = $msg['id'];
+				$data['state'] = 2;
+				$data['thread_id'] = 0;
+				$data['qr'] = '';
+				$Robot->save($data);
+			}elseif(isset($msg['do']) && $msg['do'] == 'group_add'){
+				$this->groupAdd($msg['robot_id'],$msg['data']);
+			}elseif(isset($msg['do']) && $msg['do'] == 'robot_state'){
+				$this->updateRobotState($msg['robot_id'],$msg['data']);
+			}elseif(isset($msg['do']) && $msg['do'] == 'msg_add'){
+				$this->msgAdd($msg['robot_id'],$msg['data']);
+			}
+		}catch(Exception $e){
+			echo 'Encounter Exception Error as below:'.PHP_EOL;
+			echo $e->getMessage();
+		}
 	}
 	private function start($robot_id){
 		$process = proc_open('php /home/vbot/wechat-robot-core/app/runner.php '.$robot_id.' >> /home/vbot/wechat-robot-core/app/runner.log &', array(), $pipes);
@@ -176,7 +185,7 @@ class IndexController extends Controller {
 			$gn = $this->filterEmoji($v['NickName']);
 			$gn = mb_strlen($gn, 'utf-8')>100?mb_substr($gn, 0, 100):$gn;
 			$data['group_name'] = $gn;
-			$data['robot_id'] = 11;
+			$data['robot_id'] = $robot_id;
 			$group_id = $wxgroup->add($data);
 			foreach($v['MemberList'] as $vv){
 				$wxuser = M('wxgroupuser');
