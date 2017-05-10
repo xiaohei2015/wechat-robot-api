@@ -51,6 +51,42 @@ class IndexController extends Controller {
 		$ex->publish($message,$routingkey);
 		echo "send success";
 	}
+	public function send3(){
+		$routingkey='group_key';
+		//设置连接
+		$conn_args = array( 'host'=>'114.55.133.164' , 'port'=> '5672', 'login'=>'rabbit' , 'password'=> 'Rbtr@esit445','vhost' =>'/');
+		$conn = new \AMQPConnection($conn_args);
+		$conn->connect();
+		//创建channel
+		$channel = new \AMQPChannel($conn);
+		//创建exchange
+		$ex = new \AMQPExchange($channel);
+		$ex->setName('group_exchange');//创建名字
+		$ex->setType(AMQP_EX_TYPE_DIRECT);
+		$ex->setFlags(AMQP_DURABLE);
+		$ex->declareExchange();
+		//你的消息
+		$message = json_encode(array('id'=>'12','name'=>'robot12','do'=>'stop'));
+		//send msg
+		$ex->publish($message,$routingkey);
+		echo "send success";
+	}
+	//anouce the ro
+	public function send4(){
+		$bindingkey='group_key';
+		//连接RabbitMQ
+		$conn_args = array( 'host'=>'114.55.133.164' , 'port'=> '5672', 'login'=>'rabbit' , 'password'=> 'Rbtr@esit445','vhost' =>'/');
+		$conn = new \AMQPConnection($conn_args);
+		$conn->connect();
+		//设置queue名称，使用exchange，绑定routingkey
+		$channel = new \AMQPChannel($conn);
+		$q = new \AMQPQueue($channel);
+		$q->setName('group_queue');
+		$q->setFlags(AMQP_DURABLE);
+		$q->declare();
+		$q->bind('group_exchange',$bindingkey);
+		$conn->disconnect();
+	}
 	public function run(){
 		$bindingkey='robot_key';
 		//连接RabbitMQ
@@ -64,7 +100,7 @@ class IndexController extends Controller {
 		$q->setFlags(AMQP_DURABLE);
 		$q->declare();
 		$q->bind('robot_exchange',$bindingkey);
-		$i=3600*2;//hour
+		$i=3600*24*30;//hour
 		while($i>0){
 			//消息获取
 			$messages = $q->get(AMQP_AUTOACK) ;
@@ -77,7 +113,7 @@ class IndexController extends Controller {
 					rename("/home/vbot/wechat-robot-core/tmp/qr.png", "/data/sharedisk/robot/qrcode/".$qr_name.".png");
 					$Robot = M('robot');
 					$data['id'] = $msg['id'];
-					$data['state'] = 0;
+					$data['state'] = 1;
 					$data['thread_id'] = $pid;
 					$data['qr'] = 'http://114.55.133.164:800/robot/qrcode/'.$qr_name.".png";
 					$Robot->save($data);
@@ -107,6 +143,7 @@ class IndexController extends Controller {
 	}
 	private function start($robot_id){
 		$process = proc_open('php /home/vbot/wechat-robot-core/app/runner.php '.$robot_id.' >> /home/vbot/wechat-robot-core/app/runner.log &', array(), $pipes);
+		sleep(5);
         $var = proc_get_status($process);
         proc_close($process);
         $pid = intval($var['pid']) + 1;
