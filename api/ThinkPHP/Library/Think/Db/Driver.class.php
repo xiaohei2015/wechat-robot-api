@@ -137,48 +137,52 @@ abstract class Driver {
      * @return mixed
      */
     public function query($str,$fetchSql=false) {
-        $this->initConnect(false);
-        if ( !$this->_linkID ) return false;
-        $this->queryStr     =   $str;
-        if(!empty($this->bind)){
-            $that   =   $this;
-            $this->queryStr =   strtr($this->queryStr,array_map(function($val) use($that){ return '\''.$that->escapeString($val).'\''; },$this->bind));
-        }
-        if($fetchSql){
-            return $this->queryStr;
-        }
-        //释放前次的查询结果
-        if ( !empty($this->PDOStatement) ) $this->free();
-        $this->queryTimes++;
-        N('db_query',1); // 兼容代码
-        // 调试开始
-        $this->debug(true);
-        $this->PDOStatement = $this->_linkID->prepare($str);
-        if(false === $this->PDOStatement){
-            $this->error();
-            return false;
-        }
-        foreach ($this->bind as $key => $val) {
-            if(is_array($val)){
-                $this->PDOStatement->bindValue($key, $val[0], $val[1]);
-            }else{
-                $this->PDOStatement->bindValue($key, $val);
-            }
-        }
-        $this->bind =   array();
         try{
-            $result =   $this->PDOStatement->execute();
-            // 调试结束
-            $this->debug(false);
-            if ( false === $result ) {
+            $this->initConnect(false);
+            if ( !$this->_linkID ) return false;
+            $this->queryStr     =   $str;
+            if(!empty($this->bind)){
+                $that   =   $this;
+                $this->queryStr =   strtr($this->queryStr,array_map(function($val) use($that){ return '\''.$that->escapeString($val).'\''; },$this->bind));
+            }
+            if($fetchSql){
+                return $this->queryStr;
+            }
+            //释放前次的查询结果
+            if ( !empty($this->PDOStatement) ) $this->free();
+            $this->queryTimes++;
+            N('db_query',1); // 兼容代码
+            // 调试开始
+            $this->debug(true);
+            $this->PDOStatement = $this->_linkID->prepare($str);
+            if(false === $this->PDOStatement){
                 $this->error();
                 return false;
-            } else {
-                return $this->getResult();
             }
-        }catch (\PDOException $e) {
-            $this->error();
-            return false;
+            foreach ($this->bind as $key => $val) {
+                if(is_array($val)){
+                    $this->PDOStatement->bindValue($key, $val[0], $val[1]);
+                }else{
+                    $this->PDOStatement->bindValue($key, $val);
+                }
+            }
+            $this->bind =   array();
+            try{
+                $result =   $this->PDOStatement->execute();
+                // 调试结束
+                $this->debug(false);
+                if ( false === $result ) {
+                    $this->error();
+                    return false;
+                } else {
+                    return $this->getResult();
+                }
+            }catch (\PDOException $e) {
+                $this->error();
+                return false;
+            }
+        }catch (\PDOException $e){
+            $this->executeException($e, $str, $fetchSql);
         }
     }
 
@@ -190,52 +194,56 @@ abstract class Driver {
      * @return mixed
      */
     public function execute($str,$fetchSql=false) {
-        $this->initConnect(true);
-        if ( !$this->_linkID ) return false;
-        $this->queryStr = $str;
-        if(!empty($this->bind)){
-            $that   =   $this;
-            $this->queryStr =   strtr($this->queryStr,array_map(function($val) use($that){ return '\''.$that->escapeString($val).'\''; },$this->bind));
-        }
-        if($fetchSql){
-            return $this->queryStr;
-        }
-        //释放前次的查询结果
-        if ( !empty($this->PDOStatement) ) $this->free();
-        $this->executeTimes++;
-        N('db_write',1); // 兼容代码
-        // 记录开始执行时间
-        $this->debug(true);
-        $this->PDOStatement =   $this->_linkID->prepare($str);
-        if(false === $this->PDOStatement) {
-            $this->error();
-            return false;
-        }
-        foreach ($this->bind as $key => $val) {
-            if(is_array($val)){
-                $this->PDOStatement->bindValue($key, $val[0], $val[1]);
-            }else{
-                $this->PDOStatement->bindValue($key, $val);
-            }
-        }
-        $this->bind =   array();
         try{
-            $result =   $this->PDOStatement->execute();
-            // 调试结束
-            $this->debug(false);
-            if ( false === $result) {
+            $this->initConnect(true);
+            if ( !$this->_linkID ) return false;
+            $this->queryStr = $str;
+            if(!empty($this->bind)){
+                $that   =   $this;
+                $this->queryStr =   strtr($this->queryStr,array_map(function($val) use($that){ return '\''.$that->escapeString($val).'\''; },$this->bind));
+            }
+            if($fetchSql){
+                return $this->queryStr;
+            }
+            //释放前次的查询结果
+            if ( !empty($this->PDOStatement) ) $this->free();
+            $this->executeTimes++;
+            N('db_write',1); // 兼容代码
+            // 记录开始执行时间
+            $this->debug(true);
+            $this->PDOStatement =   $this->_linkID->prepare($str);
+            if(false === $this->PDOStatement) {
                 $this->error();
                 return false;
-            } else {
-                $this->numRows = $this->PDOStatement->rowCount();
-                if(preg_match("/^\s*(INSERT\s+INTO|REPLACE\s+INTO)\s+/i", $str)) {
-                    $this->lastInsID = $this->_linkID->lastInsertId();
-                }
-                return $this->numRows;
             }
-        }catch (\PDOException $e) {
-            $this->error();
-            return false;
+            foreach ($this->bind as $key => $val) {
+                if(is_array($val)){
+                    $this->PDOStatement->bindValue($key, $val[0], $val[1]);
+                }else{
+                    $this->PDOStatement->bindValue($key, $val);
+                }
+            }
+            $this->bind =   array();
+            try{
+                $result =   $this->PDOStatement->execute();
+                // 调试结束
+                $this->debug(false);
+                if ( false === $result) {
+                    $this->error();
+                    return false;
+                } else {
+                    $this->numRows = $this->PDOStatement->rowCount();
+                    if(preg_match("/^\s*(INSERT\s+INTO|REPLACE\s+INTO)\s+/i", $str)) {
+                        $this->lastInsID = $this->_linkID->lastInsertId();
+                    }
+                    return $this->numRows;
+                }
+            }catch (\PDOException $e) {
+                $this->error();
+                return false;
+            }
+        }catch (\PDOException $e){
+            $this->executeException($e, $str, $fetchSql);
         }
     }
 
@@ -1145,5 +1153,23 @@ abstract class Driver {
         }
         // 关闭连接
         $this->close();
+    }
+}
+
+
+public function executeException($e, $str, $fetchSql)
+{
+    if ($e->errorInfo[1] == 2006 || $e->errorInfo[1] == 2013) {
+        $log = 'executeException: ' . json_encode($e);
+        Log::write($log, Log::WARN);
+        $linkIdList = array_keys($this->linkID, $this->_linkID);
+        if($linkIdList && is_array($linkIdList)){
+            foreach($linkIdList as $linkId){
+                unset($this->linkID[$linkId]);
+            }
+        }
+        $this->close();
+        $this->initConnect();
+        $this->execute($str, $fetchSql);
     }
 }
