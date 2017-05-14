@@ -1154,22 +1154,21 @@ abstract class Driver {
         // 关闭连接
         $this->close();
     }
-}
 
-
-public function executeException($e, $str, $fetchSql)
-{
-    if ($e->errorInfo[1] == 2006 || $e->errorInfo[1] == 2013) {
-        $log = 'executeException: ' . json_encode($e);
-        Log::write($log, Log::WARN);
-        $linkIdList = array_keys($this->linkID, $this->_linkID);
-        if($linkIdList && is_array($linkIdList)){
-            foreach($linkIdList as $linkId){
-                unset($this->linkID[$linkId]);
+    public function executeException($e, $str, $fetchSql)
+    {
+        if ($e->errorInfo[1] == 2006 || $e->errorInfo[1] == 2013) {
+            $log = 'executeException: ' . json_encode($e);
+            Log::write($log, Log::WARN);
+            $linkIdList = array_keys($this->linkID, $this->_linkID);
+            if($linkIdList && is_array($linkIdList)){
+                foreach($linkIdList as $linkId){
+                    unset($this->linkID[$linkId]);
+                }
             }
+            $this->close();
+            $this->initConnect();
+            $this->execute($str, $fetchSql);
         }
-        $this->close();
-        $this->initConnect();
-        $this->execute($str, $fetchSql);
     }
 }
