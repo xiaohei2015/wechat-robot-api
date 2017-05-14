@@ -186,7 +186,13 @@ class IndexController extends Controller {
 			$gn = mb_strlen($gn, 'utf-8')>100?mb_substr($gn, 0, 100):$gn;
 			$data['group_name'] = $gn;
 			$data['robot_id'] = $robot_id;
-			$group_id = $wxgroup->add($data);
+			$old_grp = M('wxgroup')->where("group_name='%s' and robot_id='%d'",array($gn, $robot_id))->find();
+			if($old_grp){
+				M('wxgroup')->where("group_name='%s' and robot_id='%d'",array($gn, $robot_id))->save($data);
+				$group_id = $old_grp['id'];
+			}else{
+				$group_id = $wxgroup->add($data);
+			}
 			foreach($v['MemberList'] as $vv){
 				$wxuser = M('wxgroupuser');
 				$data = [];
@@ -198,7 +204,12 @@ class IndexController extends Controller {
 				$data['nick_name'] = $nn;
 				$data['user_name'] = $vv['UserName'];
 				var_dump($data);
-				$wxuser->add($data);
+				$old_user = M('wxgroupuser')->where("wxgroupid='%d' and nick_name='%s'",array($group_id, $nn))->find();
+				if($old_user){
+					M('wxgroupuser')->where("wxgroupid='%d' and nick_name='%s'",array($group_id, $nn))->save($data);
+				}else{
+					$wxuser->add($data);
+				}
 			}
 			echo $v['NickName'].' group info saved success!'.PHP_EOL;
 		}
