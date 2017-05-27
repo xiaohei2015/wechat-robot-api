@@ -146,6 +146,8 @@ class IndexController extends Controller {
 				$Robot->save($data);
 			}elseif(isset($msg['do']) && $msg['do'] == 'group_add'){
 				$this->groupAdd($msg['robot_id'],$msg['data']);
+			}elseif(isset($msg['do']) && $msg['do'] == 'group_update'){
+				$this->groupUpdate($msg['robot_id'],$msg['user_name'],$msg['data']);
 			}elseif(isset($msg['do']) && $msg['do'] == 'robot_state'){
 				$this->updateRobotState($msg['robot_id'],$msg['data']);
 			}elseif(isset($msg['do']) && $msg['do'] == 'msg_add'){
@@ -218,6 +220,17 @@ class IndexController extends Controller {
 				}
 			}
 			echo $v['NickName'].' group info saved success!'.PHP_EOL;
+		}
+	}
+	private function groupUpdate($robot_id, $user_name, $group){
+		$data = [];
+		$data['group_name'] = $group['NickName'];
+		$model = M('wxgroup')->where("group_id='%s' and robot_id='%d'",array($user_name, $robot_id))->find();
+		if($model){
+			M('wxgroup')->where("group_id='%s' and robot_id='%d'",array($user_name, $robot_id))->save($data);
+			echo 'Sucess to do groupUpdate'.json_encode([$robot_id, $user_name, $group]);
+		}else{
+			echo 'Failed to do groupUpdate, Not found record！'.json_encode([$robot_id, $user_name, $group]);
 		}
 	}
 	private function updateRobotState($robot_id, $data){
