@@ -102,6 +102,9 @@ class IndexController extends Controller {
 		$q->bind('robot_exchange',$bindingkey);
 		$i=3600*24*30;//hour
 		while($i>0){
+			if($i%30 == 0){
+				$this->tryRun();//tryRun every 30 seconds
+			}
 			//消息获取
 			$messages = $q->get(AMQP_AUTOACK) ;
 			if ($messages){
@@ -112,6 +115,9 @@ class IndexController extends Controller {
 			echo $i.PHP_EOL;
 		}
 		$conn->disconnect();
+	}
+	private function tryRun(){
+		$wxgroup = M('wxgroup')->where("group_name='%s' and robot_id='%d'",array('Test', 1))->find();
 	}
 	private function msgHandling($messages){
 		try{
@@ -215,11 +221,14 @@ class IndexController extends Controller {
 		}
 	}
 	private function updateRobotState($robot_id, $data){
-		$Robot = M('robot');
-		$data['id'] = $robot_id;
-		$data['state'] = $data['state'];
-		var_dump($data);
-		$Robot->save($data);
+		$model_robot = M('robot')->where("id='%d'",array($robot_id))->find();
+		if($data['state'] == 4 && $model_robot['state'] == 3){}else{
+			$Robot = M('robot');
+			$data['id'] = $robot_id;
+			$data['state'] = $data['state'];
+			var_dump($data);
+			$Robot->save($data);
+		}
 	}
 	private function msgAdd($robot_id, $msg){
 		$group= @$msg['from']['UserName'];

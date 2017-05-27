@@ -167,19 +167,14 @@ abstract class Driver {
                 }
             }
             $this->bind =   array();
-            try{
-                $result =   $this->PDOStatement->execute();
-                // 调试结束
-                $this->debug(false);
-                if ( false === $result ) {
-                    $this->error();
-                    return false;
-                } else {
-                    return $this->getResult();
-                }
-            }catch (\PDOException $e) {
+            $result =   $this->PDOStatement->execute();
+            // 调试结束
+            $this->debug(false);
+            if ( false === $result ) {
                 $this->error();
                 return false;
+            } else {
+                return $this->getResult();
             }
         }catch (\PDOException $e){
             $this->executeException($e, $str, $fetchSql);
@@ -224,23 +219,18 @@ abstract class Driver {
                 }
             }
             $this->bind =   array();
-            try{
-                $result =   $this->PDOStatement->execute();
-                // 调试结束
-                $this->debug(false);
-                if ( false === $result) {
-                    $this->error();
-                    return false;
-                } else {
-                    $this->numRows = $this->PDOStatement->rowCount();
-                    if(preg_match("/^\s*(INSERT\s+INTO|REPLACE\s+INTO)\s+/i", $str)) {
-                        $this->lastInsID = $this->_linkID->lastInsertId();
-                    }
-                    return $this->numRows;
-                }
-            }catch (\PDOException $e) {
+            $result =   $this->PDOStatement->execute();
+            // 调试结束
+            $this->debug(false);
+            if ( false === $result) {
                 $this->error();
                 return false;
+            } else {
+                $this->numRows = $this->PDOStatement->rowCount();
+                if(preg_match("/^\s*(INSERT\s+INTO|REPLACE\s+INTO)\s+/i", $str)) {
+                    $this->lastInsID = $this->_linkID->lastInsertId();
+                }
+                return $this->numRows;
             }
         }catch (\PDOException $e){
             $this->executeException($e, $str, $fetchSql);
